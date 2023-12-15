@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Product</title>
+</head>
+<body>
+    <h1>New Product</h1>
+    <form action="/products" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="">Title:</label>
+            <input type="text" name="title">
+        </div>
+        <div>
+            <label for="">Price:</label>
+            <input type="number" name="price">
+        </div>
+        <div>
+            <label for="">Description:</label>
+            <input type="text" name="description">
+        </div>
+        <div>
+            <label for="">Image:</label>
+            <input type="file" name="image" accept="image/*">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <% if(locals.errors){%>
+        <% for(let i=0 ; i < errors.length; i++){%>
+            <p><%=  errors[i].msg %></p>
+        <%}%>
+    <%}%>
+</body>
+</html>
